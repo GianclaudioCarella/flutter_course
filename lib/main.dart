@@ -3,7 +3,17 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  List<String> _products = ['Food Tester'];
+
   @override // to make clear that the next widget overrides the statelesswidget
   Widget build(BuildContext context) {
     // all widgets needs a constructor to drawing on the screen
@@ -19,18 +29,24 @@ class MyApp extends StatelessWidget {
                 margin: EdgeInsets.all(10.0),
                 child: RaisedButton(
                   onPressed: () {
-                    
+                    setState(() {
+                      _products.add('Advanced Food Tester');
+                    });
                   },
                   child: Text('Add Product'),
                 ),
               ),
-              Card(
-                child: Column(
-                  children: <Widget>[
-                    Image.asset('assets/food.jpg'),
-                    Text('Food Paradise'),
-                  ],
-                ),
+              Column(
+                children: _products
+                    .map((element) => Card(
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset('assets/food.jpg'),
+                              Text(element),
+                            ],
+                          ),
+                        ))
+                    .toList(),
               ),
             ],
           )),
