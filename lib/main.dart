@@ -42,9 +42,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.deepOrange,
-          accentColor: Colors.deepPurple),
+        brightness: Brightness.dark,
+        primarySwatch: Colors.deepOrange,
+        accentColor: Colors.deepPurple,
+        //fontFamily: 'Oswald'
+      ),
+
       //home: AuthPage(),
       routes: {
         '/': (BuildContext context) => AuthPage(),
@@ -60,8 +63,11 @@ class _MyAppState extends State<MyApp> {
         if (pathElements[1] == 'product') {
           final int index = int.parse(pathElements[2]);
           return MaterialPageRoute<bool>(
-            builder: (context) => ProductPage(
-                _products[index]['title'], _products[index]['image']),
+            builder: (BuildContext context) => ProductPage(
+                _products[index]['title'],
+                _products[index]['image'],
+                _products[index]['price'],
+                _products[index]['description']),
           );
         }
         return null;
