@@ -59,7 +59,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
               final Map<String, dynamic> product = {
                 'title': _titleValue,
                 'description': _descriptionValue,
-                'Price': _priceValue,
+                'price': _priceValue,
                 'image': 'assets/food.jpg'
               };
               widget.addProduct(product);
