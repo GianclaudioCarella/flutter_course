@@ -75,7 +75,7 @@ class _AuthPageState extends State<AuthPage> {
     );
   }
 
-  void _submit() {
+  void _submit() { 
     if (!_formKey.currentState.validate() || !_formData['acceptTerms']) {
       return;
     }
